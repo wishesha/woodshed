@@ -4,7 +4,7 @@ A musical analysis tool built using NVIDIA's Jetson Orin Nano. Analyses practice
 # Current Version: v0.1
 
 # What it does
-Detects tempo from an audio recording using LibROSA's beat tracking algorithm. Takes a WAV file as input, analyses it and returns a tempo in BPM along with timestamped beat positions. 
+Detects tempo from an audio recording using LibROSA's beat tracking algorithm. Takes a WAV file as input, analyzes it and returns a tempo in BPM along with timestamped beat positions. 
 
 # Functionality
 - Takes a WAV file as user input
