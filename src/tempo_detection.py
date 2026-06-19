@@ -10,7 +10,8 @@ def detect_tempo(audio_path):
         print(f"{audio_path} is not a valid file")
         raise SystemExit
     tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
-    print(f"Estimated Tempo: {tempo}\n Beats: {beats}")
+    beat_times = librosa.frames_to_time(beats, sr=sr)
+    print(f"Estimated Tempo: {tempo}\n Beat Times(in seconds): {beat_times}")
     return tempo
 
 detect_tempo(audio_path)
