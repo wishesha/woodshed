@@ -3,10 +3,11 @@ A musical analysis tool planned to be built using NVIDIA's Jetson Orin Nano. Cur
 
 # Current Version: v0.1
 
-# Inspiration
+## Background 
+### Inspiration
 This project was inspired by a personal hobby of mine, playing music and the saxophone. Something that novice to professional players struggle with but few know how to deal with is the challenge of getting a song or piece up to tempo. A common mistake players, including myself make is thinking only playing with a metronome will solve the problems. While this can help keep you on time, often times, what happens is it is hard for someone to be objective about their own playing, and how accurate it is. This misconception is exactly where Woodshed was born. 
 
-# Future Vision
+### Future Vision
 Created to be a tempo detection and accuracy tool, the final version of Woodshed will be an app where you can enter in a passage, record it, and Woodshed can tell you in real-time after you finish playing, what tempo it was at, how accurate it was, and some extra details about your playing, leveraging the Jetson Orin Nano and audio deep learning models. It's designed to take the guesswork and subjectiveness out of your practice sessions.
 
 ## What it does
