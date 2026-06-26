@@ -3,30 +3,38 @@ A musical analysis tool built using NVIDIA's Jetson Orin Nano. Analyses practice
 
 # Current Version: v0.1
 
-# What it does
-Detects tempo from an audio recording using LibROSA's beat tracking algorithm. Takes a WAV file as input, analyzes it and returns a tempo in BPM (beats per minute) along with timestamped beat positions. 
+## What it does
+Detects tempo from an audio recording using LibROSA's beat tracking algorithm. Takes a WAV file as input, analyzes it and returns a tempo in BPM (beats per minute) along with number of detected beats. 
 
-# Functionality
+## Functionality
 - Takes a WAV file as user input
-- Converts beat frame positions to timestamps in seconds
-- Handles FileNotFoundErrors
+- Displays file size in human-readable units(KB/MB)
+- Detects number of distinct beats in recording
+- Handles Invalid File path and many other audio related Exceptions
+- Calculates total compute time
 
-# Testing and Findings
-Tested against 2 real recordings
-1. Solo Clean Guitar Recording of the intro to "Out Getting Ribs" - King Krule.
-  - Returned an accurate tempo of 123 BPM
-2. Saxophone Solo during a jazz combo rehearsal (multiple instruments, freeform jazz ballad)
+## Testing and Findings
+### Primitive Test - 2 real recordings
+1. Solo clean guitar recording of the intro to "Out Getting Ribs" - King Krule.
+  - Returned an accurate tempo of 123 BPM 
+2. Saxophone solo during a jazz combo rehearsal (multiple instruments, freeform jazz ballad)
   - tempo estimate was inaccurate
 
-This suggests that LibROSA is accurate and reliable for solo instrument input with predictable rhythm, but struggles with dense, multi-instrumental recordings. This finding will direct the future of Woodshed with a focus on solo practice sessions.
+### Performance Notes
+- Test 1 (Guitar Intro) took approximately 4.8-6.1 seconds for a 10 second(1.8 MB) audio clip. Important to note as it will come into play when weighing the value of jetson, and if this method of tempo detection is still viable to achieve real-time detection
+- This suggests that LibROSA is accurate and reliable for solo instrument input with predictable rhythm, but struggles with dense, multi-instrumental recordings. This finding will direct the future of Woodshed with a focus on solo practice sessions.
 
-# Limitations 
+### Secondary Testing
+Tested Against an empty and corrupted audio file to seek out potential edge cases and errors where applicable.
+- Found that both these types (Empty vs Corrupted) can raise different specific exception types, which led to the decision to use broader exception handling due to the wide variety of potential audio loading errors.
+
+## Limitations 
 - No passage management - singular .wav file
 - No database or session logging/tracking
 - Not yet deployed on jetson
 - Tempo detection only: No pitch or accuracy analysis yet
 
-# Setup
+## Setup
 ```bash
 git clone https://github.com/wishesha/woodshed.git
 cd woodshed
