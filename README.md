@@ -1,5 +1,5 @@
 # Woodshed
-A musical analysis tool built using NVIDIA's Jetson Orin Nano. Analyses practice audio locally. 
+A musical analysis tool planned to be built using NVIDIA's Jetson Orin Nano. Currently analyses practice audio locally.
 
 # Current Version: v0.1
 
