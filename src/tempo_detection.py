@@ -2,7 +2,6 @@ import librosa
 import os
 import time
 import math
-from audioread.exceptions import NoBackendError
 
 audio_path = "src\Audio_Files\\"
 
