@@ -2,8 +2,11 @@ import librosa
 import os
 import time
 import math
+import pyaudio
 
 audio_path = "src\Audio_Files\\"
+
+
 
 def detect_tempo(audio_path):
     file = input("Enter Filename('.wav' only): ")
@@ -29,7 +32,7 @@ def detect_tempo(audio_path):
             raise SystemExit
     
     
-    tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
+    tempo, beats = librosa.beat.beat_track(y=y, sr=sr, start_bpm=140, tightness=600)
     beat_times = librosa.frames_to_time(beats, sr=sr)
     end_time = time.perf_counter()
     compute_time = math.trunc((end_time - start_time) * 100) / 100
@@ -38,5 +41,8 @@ def detect_tempo(audio_path):
     print(f"Estimated Tempo: {tempo}\nBeats: {len(beat_times)}")
     return tempo
 
-detect_tempo(audio_path)
+def main():    
+    detect_tempo(audio_path)
 
+if __name__ == "__main__":  
+    main()
